@@ -1,0 +1,25 @@
+{
+    "versao":  "0.1.13",
+    "data":  "2026-10-26",
+    "instalador":  "https://github.com/e8557138-tech/distrix/releases/download/v0.1.13/DistrixInstalador-0.1.13.exe",
+    "tamanho":  165954695,
+    "sha256":  "35EA79B7A6BC0A62C02AD9A74E3D96086ED8E2AC95EECA81B5D3FF00E42A725D",
+    "novidades":  [
+                      "Central de atualizações: o sistema busca, baixa e instala as versões novas sozinho",
+                      "Vendas encerradas no PDV: detalhes, 2ª via do cupom e cancelamento",
+                      "Funcionários com perfis de acesso (caixa, gerente, estoque e administrador)",
+                      "Relatório de fechamento de caixa com reimpressão"
+                  ],
+    "historico":  [
+                      {
+                          "versao":  "0.1.13",
+                          "data":  "2026-10-26",
+                          "novidades":  [
+                                            "Central de atualizações: o sistema busca, baixa e instala as versões novas sozinho",
+                                            "Vendas encerradas no PDV: detalhes, 2ª via do cupom e cancelamento",
+                                            "Funcionários com perfis de acesso (caixa, gerente, estoque e administrador)",
+                                            "Relatório de fechamento de caixa com reimpressão"
+                                        ]
+                      }
+                  ]
+}

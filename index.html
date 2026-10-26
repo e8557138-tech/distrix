@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Distrix · Downloads e atualizações</title>
+<meta name="description" content="Baixe a versão mais recente do Distrix, sistema para distribuidoras: PDV, retaguarda, estoque e financeiro.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232563EB'/%3E%3Ctext x='32' y='45' font-family='Segoe UI,Arial' font-size='38' font-weight='700' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --primaria: #2563EB; --primaria-escura: #1D4ED8; --primaria-clara: #EFF4FF;
+    --menu: #0B1530; --menu2: #0F1E42; --fundo: #F4F6FB; --borda: #E2E8F0;
+    --texto: #0F172A; --medio: #334155; --suave: #64748B; --fraco: #94A3B8;
+    --sucesso: #16A34A; --sucesso-claro: #ECFDF3;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; color: var(--texto); background: var(--fundo); line-height: 1.5; }
+  a { color: var(--primaria); }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  /* Topo */
+  header { background: linear-gradient(160deg, var(--menu), var(--menu2)); color: #fff; position: relative; overflow: hidden; }
+  header::before, header::after { content: ""; position: absolute; border-radius: 50%; }
+  header::before { width: 420px; height: 420px; background: rgba(29, 78, 216, .28); right: -140px; top: -160px; }
+  header::after { width: 260px; height: 260px; background: rgba(59, 130, 246, .16); left: -90px; bottom: -120px; }
+  nav { display: flex; align-items: center; gap: 12px; padding: 22px 0; position: relative; z-index: 1; }
+  .logo { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, #3B82F6, #2563EB); display: grid; place-items: center; font-weight: 700; font-size: 22px; }
+  nav strong { font-size: 20px; }
+  nav span { color: #AFC0E4; font-size: 13px; margin-left: 2px; }
+  .heroi { display: grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items: center; padding: 34px 0 70px; position: relative; z-index: 1; }
+  .heroi h1 { font-size: clamp(30px, 4.2vw, 46px); line-height: 1.12; margin: 0 0 14px; }
+  .heroi p { color: #C9D4EE; font-size: 17px; margin: 0 0 22px; max-width: 520px; }
+  .recursos { display: flex; flex-wrap: wrap; gap: 8px; }
+  .recursos span { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: 999px; padding: 6px 12px; font-size: 13px; color: #DCE3F2; }
+
+  /* Cartão da versão */
+  .cartao { background: #fff; border: 1px solid #E8ECF3; border-radius: 18px; box-shadow: 0 12px 40px rgba(15, 23, 42, .10); }
+  .versao { padding: 26px; color: var(--texto); }
+  .versao .selo { display: inline-block; background: var(--sucesso-claro); color: var(--sucesso); font-weight: 600; font-size: 12px; border-radius: 999px; padding: 3px 10px; }
+  .versao h2 { margin: 12px 0 2px; font-size: 30px; }
+  .versao .meta { color: var(--suave); font-size: 14px; }
+  .botao { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 20px; padding: 15px 18px; border-radius: 12px; border: 0;
+           background: var(--primaria); color: #fff; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer; box-shadow: 0 6px 18px rgba(37, 99, 235, .3); }
+  .botao:hover { background: var(--primaria-escura); }
+  .botao svg { width: 20px; height: 20px; }
+  .detalhe { margin-top: 12px; font-size: 12.5px; color: var(--fraco); word-break: break-all; }
+
+  /* Seções */
+  main { margin-top: -34px; position: relative; z-index: 2; padding-bottom: 50px; }
+  .grade { display: grid; grid-template-columns: 1.15fr .85fr; gap: 20px; }
+  section.cartao { padding: 24px 26px; }
+  h3 { margin: 0 0 4px; font-size: 18px; }
+  .sub { color: var(--suave); font-size: 14px; margin: 0 0 14px; }
+  ul.novidades { list-style: none; padding: 0; margin: 0; }
+  ul.novidades li { display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px solid #F1F5F9; }
+  ul.novidades li:last-child { border-bottom: 0; }
+  ul.novidades li::before { content: "✓"; color: var(--sucesso); font-weight: 700; }
+  ol.passos { counter-reset: p; list-style: none; padding: 0; margin: 0; }
+  ol.passos li { counter-increment: p; display: flex; gap: 12px; padding: 8px 0; color: var(--medio); }
+  ol.passos li::before { content: counter(p); flex: 0 0 26px; height: 26px; border-radius: 50%; background: var(--primaria); color: #fff; font-weight: 700; font-size: 13px; display: grid; place-items: center; }
+  .historico { margin-top: 20px; }
+  details { border-top: 1px solid var(--borda); padding: 12px 0; }
+  details:first-of-type { border-top: 0; }
+  summary { cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary small { color: var(--suave); font-weight: 400; }
+  details ul { margin: 8px 0 0; padding-left: 20px; color: var(--medio); }
+  .requisitos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+  .requisitos div { background: #fff; border: 1px solid #E8ECF3; border-radius: 14px; padding: 16px; font-size: 14px; color: var(--medio); }
+  .requisitos b { display: block; color: var(--texto); margin-bottom: 4px; }
+  .aviso { background: #FFFBEB; border: 1px solid #FDE68A; color: #92400E; border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+  footer { text-align: center; color: var(--fraco); font-size: 13px; padding: 26px 0 34px; }
+
+  @media (max-width: 820px) {
+    .heroi, .grade { grid-template-columns: 1fr; }
+    .requisitos { grid-template-columns: 1fr; }
+    .heroi { padding-bottom: 60px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav><div class="logo">D</div><strong>Distrix</strong><span>Downloads e atualizações</span></nav>
+    <div class="heroi">
+      <div>
+        <h1>O sistema completo para a sua distribuidora.</h1>
+        <p>PDV rápido, retaguarda, estoque, contagem pelo celular, conta assinada e financeiro. Funciona na sua rede, mesmo sem internet.</p>
+        <div class="recursos">
+          <span>PDV com leitor e fotos</span><span>Entrada por XML da NF-e</span><span>Conta assinada</span><span>Fechamento de caixa</span><span>Backup automático</span>
+        </div>
+      </div>
+      <div class="cartao versao" id="cartaoVersao">
+        <span class="selo">Versão mais recente</span>
+        <h2 id="versao">Carregando…</h2>
+        <div class="meta" id="meta">&nbsp;</div>
+        <a class="botao" id="baixar" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Baixar instalador
+        </a>
+        <div class="detalhe" id="hash"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="grade">
+    <section class="cartao">
+      <h3>Novidades desta versão</h3>
+      <p class="sub" id="subNovidades">O que mudou</p>
+      <ul class="novidades" id="novidades"></ul>
+    </section>
+    <section class="cartao">
+      <h3>Como atualizar</h3>
+      <p class="sub">Já usa o Distrix? Não precisa baixar nada por aqui.</p>
+      <ol class="passos">
+        <li><span>Na Retaguarda, abra <b>Sistema › Atualizações</b> (no PDV: <b>Configurar caixa › Atualizações</b>).</span></li>
+        <li><span>Clique em <b>Baixar e instalar</b> e confirme a permissão do Windows.</span></li>
+        <li><span>O Distrix fecha, atualiza mantendo tudo e abre de novo sozinho.</span></li>
+      </ol>
+      <p class="aviso" style="margin-top:14px">Com vários computadores, atualize primeiro o <b>servidor</b> e depois cada caixa, sem vendas em andamento.</p>
+    </section>
+  </div>
+
+  <section class="cartao historico">
+    <h3>Histórico de versões</h3>
+    <p class="sub">Tudo o que foi publicado</p>
+    <div id="historico"></div>
+  </section>
+
+  <div class="requisitos">
+    <div><b>Windows</b>Windows 10 ou 11, 64 bits. O instalador já inclui tudo o que o Distrix precisa.</div>
+    <div><b>Banco de dados</b>SQL Server Express no computador servidor (o mesmo usado pelo Colibri serve).</div>
+    <div><b>Celular</b>App Android para contagem de estoque e fotos de notas, na mesma rede Wi-Fi.</div>
+  </div>
+</main>
+
+<footer>Distrix · sistema para distribuidoras</footer>
+
+<script>
+  const dataBr = d => d ? new Date(d + (d.length === 10 ? "T12:00:00" : "")).toLocaleDateString("pt-BR") : "";
+  const mb = b => b ? (b / 1048576).toLocaleString("pt-BR", { maximumFractionDigits: 0 }) + " MB" : "";
+  const item = texto => { const li = document.createElement("li"); li.textContent = texto; return li; };
+
+  fetch("versao.json", { cache: "no-store" })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(v => {
+      document.getElementById("versao").textContent = "Versão " + v.versao;
+      document.getElementById("meta").textContent = [dataBr(v.data) && "Publicada em " + dataBr(v.data), mb(v.tamanho)].filter(Boolean).join(" · ");
+      const baixar = document.getElementById("baixar");
+      baixar.href = v.instalador;
+      baixar.setAttribute("download", "");
+      if (v.sha256) document.getElementById("hash").textContent = "SHA-256: " + v.sha256;
+      document.getElementById("subNovidades").textContent = "Versão " + v.versao;
+      const lista = document.getElementById("novidades");
+      (v.novidades || []).forEach(n => lista.appendChild(item(n)));
+      if (!lista.children.length) lista.appendChild(item("Melhorias e correções."));
+
+      const hist = document.getElementById("historico");
+      (v.historico || []).forEach(h => {
+        const d = document.createElement("details");
+        if (h.versao === v.versao) d.open = true;
+        const s = document.createElement("summary");
+        s.textContent = "Versão " + h.versao + " ";
+        const small = document.createElement("small"); small.textContent = dataBr(h.data); s.appendChild(small);
+        const ul = document.createElement("ul");
+        (h.novidades || []).forEach(n => ul.appendChild(item(n)));
+        d.append(s, ul);
+        hist.appendChild(d);
+      });
+      if (!hist.children.length) hist.textContent = "Primeira versão publicada.";
+    })
+    .catch(() => {
+      document.getElementById("versao").textContent = "Indisponível";
+      document.getElementById("meta").textContent = "Não foi possível ler as informações da versão. Tente de novo em instantes.";
+      document.getElementById("baixar").style.display = "none";
+    });
+</script>
+</body>
+</html>
